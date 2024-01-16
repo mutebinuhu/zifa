@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, ScrollView }
 import { Stack } from "expo-router";
 import Shipperad from "../../components/ads/Shipperad";
 import PopularCard from "../../components/PopularCard";
+import ServiceCard from "../../components/ServiceCard";
+import Visad from "../../components/ads/Visad";
 
 const Main = () =>{
     const popularList = [
@@ -46,7 +48,7 @@ const Main = () =>{
  
          },
          {
-            name:"Groceries", 
+            name:"Grocery", 
             image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/grocery.gif")}/></View>
  
          },  
@@ -55,7 +57,33 @@ const Main = () =>{
             image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/trench-coat.gif")}/></View>
  
          },   
+
+         {
+            name:"Used", 
+            image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/trench-coat.gif")}/></View>
+ 
+         },   
+
+         {
+            name:"Cargo", 
+            image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/container-ship.gif")}/></View>
+ 
+         }, 
      ]
+
+    const servicesList2 = [
+        {
+            name:"Used", 
+            image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/trench-coat.gif")}/></View>
+ 
+         },   
+
+         {
+            name:"Cargo", 
+            image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/trench-coat.gif")}/></View>
+ 
+         },   
+    ]
     return(
         <ScrollView>
             <Stack.Screen options={{
@@ -84,32 +112,20 @@ const Main = () =>{
             {servicesList.map((item)=>{
                 return(
                     <TouchableOpacity>
-                    <PopularCard name={item.name} image={item.image} />
+                    <ServiceCard name={item.name} image={item.image} />
                 </TouchableOpacity>
                 )
             })}
         </View>
+
+        
         <View style={styles.main}>
             <Shipperad/>
         </View>
-        <View style={styles.popular}>
-            {/** most popular items  
-        <Text style={styles.popularText}>Most Popular Services Today</Text>
-        <FlatList
-                keyExtractor={(item)=>item.name}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                data={popularList}
-                renderItem={({item})=>(
-                    <TouchableOpacity>
-                        <PopularCard name={item.name} image={item.image} />
-                    </TouchableOpacity>
-                )}
 
-            />
-            */}
+        <View style={styles.main}>
+            <Visad title="Greetings" content="Hello, this is a nice card in React Native!" />
         </View>
-        
         </ScrollView>
     )
 }
@@ -144,8 +160,8 @@ const styles = StyleSheet.create({
       },
       serviceImage: {
        
-        width: 80, // Set your desired width
-        height: 80, // Set your desired height
+        width: 50, // Set your desired width
+        height: 50, // Set your desired height
         marginBottom: 10, // Optional: Add margin at the bottom of the image
         borderRadius:10, 
         borderWidth:1,
@@ -189,6 +205,12 @@ const styles = StyleSheet.create({
         flex:1,
         flexDirection:"row",
         justifyContent:"space-around",
+        backgroundColor:"white"
+    },
+    services2:{
+        flex:1,
+        flexDirection:"row",
+        justifyContent:"flex-start",
         backgroundColor:"white"
     },
     popular:{

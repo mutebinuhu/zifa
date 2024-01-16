@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
   },
   
   text: {
-    fontSize: 12,
+    fontSize: 10,
     color:"black",
-    textAlign:"center"
+    textAlign:"center",
 
   },
 });
