@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, ScrollView } from "react-native"
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image, ScrollView, Dimensions } from "react-native"
 import { Stack } from "expo-router";
 import Shipperad from "../../components/ads/Shipperad";
 import PopularCard from "../../components/PopularCard";
@@ -60,7 +60,7 @@ const Main = () =>{
 
          {
             name:"Used", 
-            image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/trench-coat.gif")}/></View>
+            image:<View style={styles.imageView}><Image style={styles.serviceImage} resizeMode="contain" source={require("../../assets/images/action-camera.gif")}/></View>
  
          },   
 
@@ -109,9 +109,9 @@ const Main = () =>{
             
         </View>
         <View style={styles.services}>
-            {servicesList.map((item)=>{
+            {servicesList.map((item, index)=>{
                 return(
-                    <TouchableOpacity>
+                <TouchableOpacity key={index}>
                     <ServiceCard name={item.name} image={item.image} />
                 </TouchableOpacity>
                 )
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     },
     main:{
         
-       backgroundColor:"white"
+       backgroundColor:"white",
     },
     image: {
        
